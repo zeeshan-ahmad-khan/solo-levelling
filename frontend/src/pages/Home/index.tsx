@@ -1,15 +1,17 @@
 import { ChangeEvent, useState } from "react";
 import { IHome, ITodo } from "./type";
 import { useRecoilState, useSetRecoilState } from "recoil";
-import todoListAtoms from "../../atoms/todoAtoms";
+import { todoListAtoms } from "../../atoms/todoAtoms";
+import { FaPlus } from "react-icons/fa";
+import HeaderLayout from "../../components/layout/HeaderLayout";
 
 export default function Home() {
   const [activity, setActivity] = useState("");
   const [todosList, setTodosList] = useRecoilState(todoListAtoms);
 
   return (
-    <div>
-      <div className="flex ">
+    <HeaderLayout>
+      <div className="flex">
         <input type="text" onChange={(e) => setActivity(e.target.value)} />
         <button
           onClick={() => {
@@ -25,7 +27,7 @@ export default function Home() {
             ]);
           }}
         >
-          add
+          <FaPlus />
         </button>
       </div>
       <div>
@@ -33,7 +35,7 @@ export default function Home() {
           <Todo key={d.id} d={d} />
         ))}
       </div>
-    </div>
+    </HeaderLayout>
   );
 }
 
@@ -116,7 +118,7 @@ function Todo({ d }: { d: IHome }) {
                 onChange={(e) => handleTodoChange(e, todoId)}
               />
               <p>{title}</p>
-              <p>Points:{todoPoints}</p>
+              <p>Points: {todoPoints}</p>
             </div>
           );
         })}
