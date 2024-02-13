@@ -11,7 +11,7 @@ function HeaderLayout({ children }: { children: ReactNode }) {
           <button>Logout</button>
         </div>
       </div>
-      <div>{children}</div>
+      <div className="p-3 flex flex-col">{children}</div>
     </div>
   );
 }
