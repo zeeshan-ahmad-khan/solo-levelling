@@ -1,0 +1,58 @@
+/* Define the color palette and global styles */
+:root {
+  --primary-bg: #f0f2f5;
+  --card-bg: #ffffff;
+  --text-primary: #1d2129;
+  --text-secondary: #65676b;
+  --accent-color: #1877f2; /* A nice blue */
+  --accent-color-light: #e7f3ff;
+  --accent-color-dark: #0c5ab2;
+  --success-color: #42b72a;
+  --success-color-light: #eaf7e8;
+  --border-color: #ced0d4;
+  --shadow-color: rgba(0, 0, 0, 0.08);
+
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  background-color: var(--primary-bg);
+  font-family: var(--font-family);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 40px;
+}
+
+.app-header {
+  width: 100%;
+  text-align: center;
+  padding: 20px 0;
+  color: var(--text-primary);
+}
+
+.app-header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* Replace the old .tasks-list style with this */
+.task-grid {
+  width: 100%;
+  max-width: 1400px; /* Set a max-width for very large screens */
+  padding: 0 16px;
+  box-sizing: border-box;
+
+  display: grid;
+  /* This is the magic for a responsive grid: */
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 24px; /* The space between cards */
+}
